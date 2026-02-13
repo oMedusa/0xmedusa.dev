@@ -1,0 +1,40 @@
+# Site settings
+title: Medusa's Lab
+description: Cybersecurity articles, writeups & technical blog
+author: Medusa
+baseurl: ""
+url: "https://omedusa.github.io"
+
+# GitHub info
+github_username: omedusa
+
+# Build settings
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /posts/:title/
+
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Medusa"

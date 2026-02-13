@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="wrap">
+    <section class="hero">
+        <img src="https://github.com/{{ site.github_username }}.png" alt="{{ site.author }}" class="hero-avatar">
+        <h1>hey, i'm <span class="accent">Medusa</span></h1>
+        <p>Breaking labs, writing about it.</p>
+    </section>
+
+    <section>
+        <p class="section-title">recent posts</p>
+        <div class="posts-grid">
+            {% for post in site.posts limit:6 %}
+            <article class="post-card">
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+                <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                <p class="excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+                {% if post.tags %}
+                <div class="tags-list">
+                    {% for tag in post.tags limit:3 %}<span class="tag">{{ tag }}</span>{% endfor %}
+                </div>
+                {% endif %}
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+</div>
